@@ -11,6 +11,15 @@ ng g module auth
 ng g c auth/components/register
 ```
 
+<https://ngrx.io/guide/store>
+
+![NGRX](./state-management-lifecycle.png)
+
+```bash
+ng add @ngrx/store@latest
+ng add @ngrx/store-devtools@latest
+```
+
 ## MediumcloneAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
