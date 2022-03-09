@@ -1,4 +1,17 @@
-# MediumcloneAngular
+# Angular Course 2021 - Building Real Project From Scratch
+
+Based on <https://www.youtube.com/watch?v=DyklxnC2XP0&list=WL&index=1&t=70s>
+
+Plus
+
+<https://github.com/angular-eslint/angular-eslint>
+
+```bash
+ng g module auth
+ng g c auth/components/register
+```
+
+## MediumcloneAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
 
