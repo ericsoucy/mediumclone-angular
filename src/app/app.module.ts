@@ -8,6 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
+import { BackendErrorMessagesComponent } from './shared/modules/backend-error-messages/components/backend-error-messages/backend-error-messages.component';
 
 @NgModule({
   declarations: [AppComponent],

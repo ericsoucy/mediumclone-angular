@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { BackendErrors } from 'src/app/shared/types/backend-errors';
 import { registerAction } from '../../store/actions/register.action';
-import { isSubmittingSelector } from '../../store/selectors';
+import {
+  selectIsSubmitting,
+  selectValidationErrors,
+} from '../../store/selectors';
 import { RegisterRequest } from '../../types/register-request';
 
 @Component({
@@ -19,6 +23,7 @@ export class RegisterComponent implements OnInit {
   });
 
   isSubmitting$!: Observable<boolean>;
+  backendErrors$!: Observable<BackendErrors | null>;
 
   constructor(private formBuilder: FormBuilder, private store: Store) {}
   ngOnInit(): void {
@@ -33,7 +38,8 @@ export class RegisterComponent implements OnInit {
   }
 
   initializeValues(): void {
-    this.isSubmitting$ = this.store.pipe(select(isSubmittingSelector));
+    this.isSubmitting$ = this.store.select(selectIsSubmitting);
     console.log('initializeValues', this.isSubmitting$);
+    this.backendErrors$ = this.store.select(selectValidationErrors);
   }
 }

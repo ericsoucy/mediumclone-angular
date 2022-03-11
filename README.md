@@ -21,6 +21,12 @@ ng add @ngrx/store-devtools@latest
 ng add @ngrx/effects@latest
 ```
 
+<https://stackoverflow.com/questions/61780339/angular-ivy-stricttemplates-true-type-boolean-null-is-not-assignable-to-type>
+
+``[backendErrors]="(backendErrors$ | async)!``
+
+
+
 ## MediumcloneAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
