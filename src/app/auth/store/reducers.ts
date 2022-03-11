@@ -1,9 +1,16 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { AuthState } from '../types/auth-state';
-import { registerAction } from './actions/register.action';
+import {
+  registerAction,
+  registerFailureAction,
+  registerSuccessAction,
+} from './actions/register.action';
 
 const initialState: AuthState = {
   isSubmitting: false,
+  currentUser: null,
+  isLoggedIn: null,
+  validationErrors: null,
 };
 
 const authReducer = createReducer(
@@ -13,6 +20,24 @@ const authReducer = createReducer(
     (state): AuthState => ({
       ...state,
       isSubmitting: true,
+      validationErrors: null,
+    })
+  ),
+  on(
+    registerSuccessAction,
+    (state, action): AuthState => ({
+      ...state,
+      isSubmitting: false,
+      isLoggedIn: true,
+      currentUser: action.currentUser,
+    })
+  ),
+  on(
+    registerFailureAction,
+    (state, action): AuthState => ({
+      ...state,
+      isSubmitting: false,
+      validationErrors: action.errors,
     })
   )
 );
